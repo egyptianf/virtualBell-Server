@@ -5,6 +5,6 @@ This is a simulation of the server application which is basically a bell, appear
 <ul>
     <li><code>JRE <= 8</code></li>
     <li><code>tyrus-server</code> & <code>tyrus-container-grizzly</code> libraries</li>
-    <li><code>FXTrayIcon-3.0</code></li>
+    <li><code>FXTrayIcon-3.0</code> library</li>
     <li>Application must be started before the client in order for it to work <em>(Will be fixed later)</em></li>
 </ul>
