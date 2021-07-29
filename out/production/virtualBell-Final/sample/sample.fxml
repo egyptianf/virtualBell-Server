@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="169.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SampleController">
+   <children>
+      <Button alignment="CENTER" layoutX="23.0" layoutY="33.0" mnemonicParsing="false" onAction="#call" prefHeight="56.0" prefWidth="123.0" text="CALL">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Label fx:id="clicked" alignment="CENTER" layoutX="257.0" layoutY="265.0" prefHeight="22.0" prefWidth="88.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
