@@ -22,6 +22,7 @@ public class SampleController {
         server = new Server("localhost", 8025, "/folder", ChatServerEndpoint.class);
         try {
             server.start();
+            server.getServerContainer().setDefaultMaxSessionIdleTimeout(-10);
             System.out.println("--- server is running");
         } catch (Exception e) {
             e.printStackTrace();
