@@ -27,6 +27,9 @@ public class ChatServerEndpoint {
         mySession = session;
         System.out.println("NEW CONNECTION");
 
+        //make session have no max idle timeout on a per session basis
+        session.setMaxIdleTimeout(-10);
+
         //connectedNumLabel.setText(Integer.toString(ChatServerEndpoint.connectedNum));
         //SampleController.connectedNum.setText(Integer.toString(ChatServerEndpoint.connectedNum));
     }
