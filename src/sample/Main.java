@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.stage.StageStyle;
 import org.glassfish.tyrus.server.Server;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +27,7 @@ public class Main extends Application {
         SampleController myController = loader.getController();
         primaryStage.setTitle("Virtual Bell");
         primaryStage.setAlwaysOnTop(true);
-
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         FXTrayIcon fxTrayIcon = new FXTrayIcon(primaryStage, getClass().getResource("bell-icon.png"));
         fxTrayIcon.show();
@@ -34,8 +36,11 @@ public class Main extends Application {
         MenuItem exitItem = new MenuItem("Exit");
         exitItem.setOnAction(e -> myController.closeProgram(primaryStage, fxTrayIcon));
         fxTrayIcon.addMenuItem(exitItem);
+        Scene scene = new Scene(root, 220, 220);
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
+        scene.setFill(Color.TRANSPARENT);
 
-        primaryStage.setScene(new Scene(root, 170, 110));
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

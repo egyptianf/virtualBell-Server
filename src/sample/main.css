@@ -1,0 +1,9 @@
+.root { -fx-background-color: transparent; }
+
+#callButton{
+    -fx-background-radius: 200em;
+    -fx-min-width: 160px;
+    -fx-min-height: 160px;
+    -fx-max-width: 160px;
+    -fx-max-height: 160px;
+}
