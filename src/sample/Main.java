@@ -2,10 +2,12 @@ package sample;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
 import javafx.geometry.Insets;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Screen;
 import javafx.stage.StageStyle;
 import org.glassfish.tyrus.server.Server;
 import javafx.application.Application;
@@ -42,6 +44,12 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+        //Changing the location of the main window
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+        double x = bounds.getMinX() + (bounds.getWidth() - scene.getWidth()) * 1;
+        double y = bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) * 0.1;
+        primaryStage.setX(x);
+        primaryStage.setY(y);
     }
 
 
