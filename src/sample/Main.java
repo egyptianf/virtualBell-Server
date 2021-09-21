@@ -1,10 +1,14 @@
 package sample;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
@@ -17,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.glassfish.tyrus.server.Server;
 
+import java.awt.*;
 import java.util.Objects;
 
 public class Main extends Application {
@@ -27,6 +32,8 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
         SampleController myController = loader.getController();
+
+
         primaryStage.setTitle("Virtual Bell");
         primaryStage.setAlwaysOnTop(true);
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -50,6 +57,19 @@ public class Main extends Application {
         double y = bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) * 0.1;
         primaryStage.setX(x);
         primaryStage.setY(y);
+        myController.callButton.setOnMousePressed(pressEvent -> {
+            double beforeX = primaryStage.getX(), beforeY = primaryStage.getY();
+            myController.callButton.setOnMouseDragged(dragEvent -> {
+                primaryStage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
+                primaryStage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+            });
+        });
+        primaryStage.xProperty().addListener((obs, oldVal, newVal) -> {
+            myController.locationChanged = true;
+        });
+        primaryStage.yProperty().addListener((obs, oldVal, newVal) -> {
+            myController.locationChanged = true;
+        });
     }
 
 

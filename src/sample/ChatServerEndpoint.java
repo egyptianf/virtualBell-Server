@@ -20,14 +20,12 @@ public class ChatServerEndpoint {
     public static Session mySession;
 
 
-    public static int connectedNum = 0;
     public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0");
 
 
     @OnOpen
     public void onOpen(Session session) {
         System.out.println ("Connected, sessionID = " + session.getId());
-        connectedNum++;
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -80,7 +78,6 @@ public class ChatServerEndpoint {
         }catch (NullPointerException ne){
             System.out.println("NO CONNECTIONS YET!");
         }
-        connectedNum--;
         //connectedNumLabel.setText(Integer.toString(ChatServerEndpoint.connectedNum));
     }
 
