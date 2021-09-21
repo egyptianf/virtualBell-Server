@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -18,12 +21,19 @@ public class ChatServerEndpoint {
 
 
     public static int connectedNum = 0;
+    public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0");
 
 
     @OnOpen
     public void onOpen(Session session) {
         System.out.println ("Connected, sessionID = " + session.getId());
         connectedNum++;
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1));
+            }
+        });
         mySession = session;
         System.out.println("NEW CONNECTION");
 
@@ -49,6 +59,12 @@ public class ChatServerEndpoint {
     public void onClose(Session session, CloseReason closeReason) {
         System.out.println("Session " + session.getId() +
                 " closed because " + closeReason);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())-1));
+            }
+        });
         try {
             for (Session sess : session.getOpenSessions()) {
                 try {

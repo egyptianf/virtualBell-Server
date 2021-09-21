@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -15,6 +16,7 @@ import java.io.IOException;
 
 public class SampleController {
     public Label clicked;
+    public Button callButton;
     Server server;
     Stage window;
 
@@ -30,6 +32,7 @@ public class SampleController {
     }
 
     public void initialize() {
+        callButton.textProperty().bind(ChatServerEndpoint.connectedNumProperty);
         //window = (Stage) connectedNum.getScene().getWindow();
         //window.setOnCloseRequest(e -> closeProgram());
     }
