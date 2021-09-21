@@ -48,13 +48,14 @@ public class SampleController {
         System.out.println(locationChanged);
 
         try {
-            for (Session sess : ChatServerEndpoint.mySession.getOpenSessions()) {
-                try {
-                    if(!locationChanged)
+            if(!locationChanged) {
+                for (Session sess : ChatServerEndpoint.mySession.getOpenSessions()) {
+                    try {
                         sess.getBasicRemote().sendText("CALL");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.out.println("SOME ERROR HAPPENED DURING THE CONNECTION!");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        System.out.println("SOME ERROR HAPPENED DURING THE CONNECTION!");
+                    }
                 }
             }
         } catch (NullPointerException ne){
