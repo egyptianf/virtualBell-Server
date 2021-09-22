@@ -9,7 +9,7 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="FXTrayIcon-3.0.0.jar" size="13176" download="eager" />
-    <jar href="Server.jar" size="11834" download="eager" />
+    <jar href="Server.jar" size="13001" download="eager" />
     <jar href="grizzly-framework-2.3.3.jar" size="786745" download="eager" />
     <jar href="grizzly-http-2.3.3.jar" size="309011" download="eager" />
     <jar href="grizzly-http-server-2.3.3.jar" size="193235" download="eager" />

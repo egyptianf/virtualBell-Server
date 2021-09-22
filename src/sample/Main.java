@@ -4,6 +4,7 @@ import com.dustinredmond.fxtrayicon.FXTrayIcon;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Label;
@@ -33,6 +34,14 @@ public class Main extends Application {
         Parent root = loader.load();
         SampleController myController = loader.getController();
 
+        FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        Parent settingsRoot = settingsLoader.load();
+        SettingsController settingsController = settingsLoader.getController();
+        Scene settingsScene = new Scene(settingsRoot, 250, 250);
+        Stage settingsStage = new Stage();
+        settingsStage.setTitle("Button Settings");
+        settingsStage.setScene(settingsScene);
+
 
         primaryStage.setTitle("Virtual Bell");
         primaryStage.setAlwaysOnTop(true);
@@ -42,9 +51,19 @@ public class Main extends Application {
         fxTrayIcon.show();
 
         primaryStage.setOnCloseRequest(e -> myController.minimize(primaryStage));
+        //Settings Item
+        MenuItem settingsItem = new MenuItem("Settings");
+        settingsItem.setOnAction(e -> {
+            settingsStage.show();
+        });
+        fxTrayIcon.addMenuItem(settingsItem);
+        //Exit Item
         MenuItem exitItem = new MenuItem("Exit");
         exitItem.setOnAction(e -> myController.closeProgram(primaryStage, fxTrayIcon));
         fxTrayIcon.addMenuItem(exitItem);
+
+
+
         Scene scene = new Scene(root, 220, 220);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         scene.setFill(Color.TRANSPARENT);
