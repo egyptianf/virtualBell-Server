@@ -1,6 +1,7 @@
 package sample;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -14,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import org.glassfish.tyrus.server.Server;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +39,7 @@ public class Main extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
-        Scene settingsScene = new Scene(settingsRoot, 250, 250);
+        Scene settingsScene = new Scene(settingsRoot, 300, 350);
         settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
@@ -97,6 +99,22 @@ public class Main extends Application {
         settingsController.sliderSize.valueProperty().addListener((observable, oldValue, newValue) -> {
             myController.callButton.setScaleX( (newValue.doubleValue()/100) );
             myController.callButton.setScaleY( (newValue.doubleValue()/100) );
+        });
+
+        // Color picker in settingsScene
+        settingsController.colorPicker.setOnAction(new EventHandler() {
+            public void handle(Event t) {
+                myController.callButton.setStyle("-fx-background-color: #" + settingsController.colorPicker.getValue().toString().substring(2));
+
+            }
+        });
+
+        settingsController.sliderOpacity.valueProperty().addListener((observable, oldValue, newValue) -> {
+            FadeTransition fadeTransition = new FadeTransition(
+                    Duration.millis(10),
+                    myController.callButton);
+            fadeTransition.setToValue((newValue.doubleValue()/100));
+            fadeTransition.play();
         });
     }
 

@@ -29,7 +29,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1));
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1) );
             }
         });
         mySession = session;
