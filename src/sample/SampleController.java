@@ -1,6 +1,7 @@
 package sample;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -78,6 +79,7 @@ public class SampleController {
         server.stop();
         window.close();
         icon.hide();
+        Platform.exit();
     }
     public void minimize(Stage window){
         System.out.println("Minimized!");

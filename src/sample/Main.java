@@ -38,9 +38,12 @@ public class Main extends Application {
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
         Scene settingsScene = new Scene(settingsRoot, 250, 250);
+        settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
         settingsStage.setScene(settingsScene);
+
+
 
 
         primaryStage.setTitle("Virtual Bell");
@@ -88,6 +91,13 @@ public class Main extends Application {
         });
         primaryStage.yProperty().addListener((obs, oldVal, newVal) -> {
             myController.locationChanged = true;
+        });
+        // Slider in settingsScene
+        // add an event when its value changes
+        settingsController.sliderSize.valueProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("Slider has changed and we are in main function");
+            myController.callButton.setScaleX( (newValue.doubleValue()/100) );
+            myController.callButton.setScaleY( (newValue.doubleValue()/100) );
         });
     }
 
