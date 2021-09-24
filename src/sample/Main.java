@@ -37,7 +37,7 @@ public class Main extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
-        Scene settingsScene = new Scene(settingsRoot, 250, 250);
+        Scene settingsScene = new Scene(settingsRoot, 702, 514);
         settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
@@ -98,6 +98,24 @@ public class Main extends Application {
             myController.callButton.setScaleX( (newValue.doubleValue()/100) );
             myController.callButton.setScaleY( (newValue.doubleValue()/100) );
         });
+
+        settingsController.btnSize.setOnAction((ActionEvent e) -> {
+            settingsController.btnSize.setStyle("-fx-background-color:" + "#FF2626");
+            settingsController.btnColor.setStyle("-fx-background-color:" + " #DA0037");
+            settingsController.rootPane.setVisible(true);
+            settingsController.pnColor.setVisible(false);
+
+
+        });
+        settingsController.btnColor.setOnAction((ActionEvent e) -> {
+            settingsController.btnColor.setStyle("-fx-background-color:" + "#FF2626");
+            settingsController.btnSize.setStyle("-fx-background-color:" + " #DA0037");
+            settingsController.pnColor.setVisible(true);
+            settingsController.rootPane.setVisible(false);
+
+        });
+
+
     }
 
 
