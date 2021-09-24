@@ -10,9 +10,6 @@ public class SettingsController {
 
     public Slider sliderSize;
     public void initialize(){
-        sliderSize.valueProperty().addListener((observable, oldValue, newValue) ->
-                //System.out.println("sliderNameLabel: " + newValue));
-                System.out.println("Listener 1"));
     }
 
 }

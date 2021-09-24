@@ -95,7 +95,6 @@ public class Main extends Application {
         // Slider in settingsScene
         // add an event when its value changes
         settingsController.sliderSize.valueProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("Slider has changed and we are in main function");
             myController.callButton.setScaleX( (newValue.doubleValue()/100) );
             myController.callButton.setScaleY( (newValue.doubleValue()/100) );
         });

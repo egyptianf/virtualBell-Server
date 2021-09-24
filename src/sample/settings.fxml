@@ -16,7 +16,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Slider fx:id="sliderSize" layoutX="31.0" layoutY="61.0" prefHeight="30.0" prefWidth="207.0" showTickMarks="true" value="50.0" />
+      <Slider fx:id="sliderSize" layoutX="31.0" layoutY="61.0" prefHeight="30.0" prefWidth="207.0" showTickMarks="true" value="100.0" />
       <Button layoutX="92.0" layoutY="279.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="77.0" text="OK">
          <font>
             <Font size="25.0" />
