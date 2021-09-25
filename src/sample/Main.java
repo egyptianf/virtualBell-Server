@@ -1,6 +1,7 @@
 package sample;
 
 import com.dustinredmond.fxtrayicon.FXTrayIcon;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -14,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import org.glassfish.tyrus.server.Server;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +40,7 @@ public class Main extends Application {
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
         Scene settingsScene = new Scene(settingsRoot, 627, 459,Color.TRANSPARENT);
+
         settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
@@ -100,6 +103,21 @@ public class Main extends Application {
             myController.callButton.setScaleY( (newValue.doubleValue()/100) );
         });
 
+        // Color picker in settingsScene
+        settingsController.colorPicker.setOnAction(new EventHandler() {
+            public void handle(Event t) {
+                myController.callButton.setStyle("-fx-background-color: #" + settingsController.colorPicker.getValue().toString().substring(2));
+
+            }
+        });
+
+        settingsController.sliderOpacity.valueProperty().addListener((observable, oldValue, newValue) -> {
+            FadeTransition fadeTransition = new FadeTransition(
+                    Duration.millis(10),
+                    myController.callButton);
+            fadeTransition.setToValue((newValue.doubleValue()/100));
+            fadeTransition.play();
+        });
         settingsController.btnSize.setOnAction((ActionEvent e) -> {
             settingsController.btnSize.setStyle("-fx-background-color:" + "#FF2626");
             settingsController.btnColor.setStyle("-fx-background-color:" + " #DA0037");
