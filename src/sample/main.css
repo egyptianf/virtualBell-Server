@@ -7,3 +7,8 @@
     -fx-max-width: 160px;
     -fx-max-height: 160px;
 }
+#closeButton{
+      -fx-background-color:transparent;
+      -fx-border-color:transparent;
+      -fx-text-fill:transparent;
+  }

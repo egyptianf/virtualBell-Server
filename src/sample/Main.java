@@ -39,7 +39,8 @@ public class Main extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
-        Scene settingsScene = new Scene(settingsRoot, 300, 350);
+
+        Scene settingsScene = new Scene(settingsRoot, 627, 459);
         settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
@@ -116,6 +117,37 @@ public class Main extends Application {
             fadeTransition.setToValue((newValue.doubleValue()/100));
             fadeTransition.play();
         });
+        settingsController.btnSize.setOnAction((ActionEvent e) -> {
+            settingsController.btnSize.setStyle("-fx-background-color:" + "#FF2626");
+            settingsController.btnColor.setStyle("-fx-background-color:" + " #DA0037");
+            settingsController.btnOpacity.setStyle("-fx-background-color:" + "#DA0037");
+            settingsController.rootPane.setVisible(true);
+            settingsController.pnColor.setVisible(false);
+            settingsController.pnOpacity.setVisible(false);
+
+
+        });
+        settingsController.btnColor.setOnAction((ActionEvent e) -> {
+            settingsController.btnColor.setStyle("-fx-background-color:" + "#FF2626");
+            settingsController.btnSize.setStyle("-fx-background-color:" + " #DA0037");
+            settingsController.btnOpacity.setStyle("-fx-background-color:" + "#DA0037");
+            settingsController.pnColor.setVisible(true);
+            settingsController.rootPane.setVisible(false);
+            settingsController.pnOpacity.setVisible(false);
+
+        });
+        settingsController.btnOpacity.setOnAction((ActionEvent e) -> {
+            settingsController.btnOpacity.setStyle("-fx-background-color:" + "#FF2626");
+            settingsController.btnSize.setStyle("-fx-background-color:" + " #DA0037");
+            settingsController.btnColor.setStyle("-fx-background-color:" + "#DA0037");
+            settingsController.pnColor.setVisible(false);
+            settingsController.rootPane.setVisible(false);
+            settingsController.pnOpacity.setVisible(true);
+
+        });
+
+
+
     }
 
 
