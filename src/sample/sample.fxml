@@ -6,9 +6,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SampleController">
    <children>
-      <Button fx:id="callButton" alignment="CENTER" layoutX="128.0" layoutY="99.0" mnemonicParsing="false" onAction="#call" prefHeight="56.0" prefWidth="123.0" styleClass="round-button" text="CALL">
+      <Button fx:id="callButton" alignment="CENTER" layoutX="128.0" layoutY="99.0" mnemonicParsing="false" onAction="#call" prefHeight="56.0" prefWidth="123.0" styleClass="round-button" text="CALL" textAlignment="CENTER" textFill="#53f23e">
          <font>
-            <Font size="30.0" />
+            <Font name="Agency FB" size="23.0" />
          </font>
       </Button>
    </children>

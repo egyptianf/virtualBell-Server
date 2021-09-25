@@ -20,7 +20,7 @@ public class ChatServerEndpoint {
     public static Session mySession;
 
 
-    public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0");
+    public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0"+"\nCONNECTED");
 
 
     @OnOpen
@@ -29,7 +29,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1) );
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1)+"\nCONNECTED");
             }
         });
         mySession = session;
@@ -60,7 +60,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())-1));
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())-1)+"\nCONNECTED");
             }
         });
         try {
