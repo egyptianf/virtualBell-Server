@@ -37,10 +37,11 @@ public class Main extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings.fxml"));
         Parent settingsRoot = settingsLoader.load();
         SettingsController settingsController = settingsLoader.getController();
-        Scene settingsScene = new Scene(settingsRoot, 627, 459);
+        Scene settingsScene = new Scene(settingsRoot, 627, 459,Color.TRANSPARENT);
         settingsScene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         Stage settingsStage = new Stage();
         settingsStage.setTitle("Button Settings");
+        settingsStage.initStyle(StageStyle.TRANSPARENT);
         settingsStage.setScene(settingsScene);
 
 

@@ -3,12 +3,14 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -35,11 +37,12 @@ public class SettingsController {
     public AnchorPane pnOpacity;
 
     @FXML
-    private void loadColor(ActionEvent event) throws IOException {
-        AnchorPane pnColor = FXMLLoader.load(getClass().getResource("settings.fxml"));
-        rootPane.getChildren().setAll(pnColor);
-
+    public void min(MouseEvent event){
+        Stage S = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        S.setIconified(true);
     }
+
+
 
 
 
