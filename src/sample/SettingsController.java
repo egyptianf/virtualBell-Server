@@ -40,6 +40,7 @@ public class SettingsController {
     public AnchorPane rootPane;
     public AnchorPane pnColor;
     public AnchorPane pnOpacity;
+    public AnchorPane paneMaster;
 
     @FXML
     public void min(MouseEvent event){
@@ -57,6 +58,14 @@ public class SettingsController {
         pnColor.setVisible(false);
         pnOpacity.setVisible(false);
         btnSize.setStyle("-fx-background-color:" + "#FF2626");
+        paneMaster.setOnMousePressed(pressEvent -> {
+            Stage settingsStage = (Stage) paneMaster.getScene().getWindow();
+            paneMaster.setOnMouseDragged(dragEvent -> {
+                settingsStage.setX(dragEvent.getScreenX() - pressEvent.getSceneX());
+                settingsStage.setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+            });
+        });
+
     }
 
 
