@@ -9,111 +9,111 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneMaster" prefHeight="453.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
+<AnchorPane fx:id="paneMaster" prefHeight="335.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
    <children>
-      <AnchorPane fx:id="pnColor" layoutX="185.0" layoutY="26.0" prefHeight="424.0" prefWidth="437.0" style="-fx-background-color: #EDEDED;">
+      <AnchorPane fx:id="pnColor" layoutX="133.0" layoutY="26.0" prefHeight="310.0" prefWidth="292.0" style="-fx-background-color: #EDEDED;">
          <children>
-            <ColorPicker fx:id="colorPicker" editable="true" layoutX="152.0" layoutY="200.0" />
+            <ColorPicker fx:id="colorPicker" editable="true" layoutX="30.0" layoutY="40.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rootPane" layoutX="185.0" layoutY="26.0" prefHeight="424.0" prefWidth="437.0" style="-fx-background-color: #EDEDED;">
+      <AnchorPane fx:id="rootPane" layoutX="133.0" layoutY="26.0" prefHeight="310.0" prefWidth="292.0" style="-fx-background-color: #EDEDED;">
          <children>
-            <Slider fx:id="sliderSize" layoutX="81.0" layoutY="153.0" prefHeight="67.0" prefWidth="275.0" showTickMarks="true" value="100.0" />
+            <Slider fx:id="sliderSize" layoutX="130.0" layoutY="32.0" orientation="VERTICAL" prefHeight="253.0" prefWidth="20.0" value="100.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pnOpacity" layoutX="185.0" layoutY="26.0" prefHeight="424.0" prefWidth="437.0" style="-fx-background-color: #EDEDED;">
+      <AnchorPane fx:id="pnOpacity" layoutX="133.0" layoutY="26.0" prefHeight="310.0" prefWidth="292.0" style="-fx-background-color: #EDEDED;">
          <children>
-            <Slider fx:id="sliderOpacity" layoutX="71.0" layoutY="167.0" prefHeight="14.0" prefWidth="275.0" value="100.0" />
+            <Slider fx:id="sliderOpacity" layoutX="130.0" layoutY="32.0" orientation="VERTICAL" prefHeight="253.0" prefWidth="20.0" value="100.0" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="450.0" prefWidth="190.0" style="-fx-background-color: #DA0037;">
+      <AnchorPane prefHeight="337.0" prefWidth="133.0" style="-fx-background-color: #DA0037;">
          <children>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="129.0" prefHeight="30.0" prefWidth="161.0" text="Space Technology " textFill="#fffdfd">
+            <Label alignment="CENTER" layoutX="7.0" layoutY="103.0" prefHeight="20.0" prefWidth="120.0" text="Space Technology " textFill="#fffdfd">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="66.0" layoutY="159.0" text="center" textFill="#e8e5e5">
+            <Label alignment="CENTER" layoutX="51.0" layoutY="122.0" text="center" textFill="#e8e5e5">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="btnSize" graphicTextGap="15.0" layoutX="-1.0" layoutY="188.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #DA0037;" text=" Size" textFill="#f8f8f8">
+            <Button fx:id="btnSize" graphicTextGap="15.0" layoutX="-1.0" layoutY="143.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="133.0" style="-fx-background-color: #DA0037;" text="Size           " textFill="#f8f8f8">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="17.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="20.0" layoutX="8.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-settings-50%20(1).png" />
                </image>
             </ImageView>
-            <Button fx:id="btnColor" alignment="CENTER_RIGHT" graphicTextGap="15.0" layoutX="-8.0" layoutY="246.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="198.0" style="-fx-background-color: #DA0037;" text="Color Picker" textFill="#f8f8f8">
+            <Button fx:id="btnColor" alignment="CENTER" graphicTextGap="15.0" layoutX="-8.0" layoutY="183.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="141.0" style="-fx-background-color: #DA0037;" text="     Color Picker" textFill="#f8f8f8">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="17.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="8.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-color-dropper-50.png" />
                </image>
             </ImageView>
-            <Label layoutX="32.0" layoutY="386.0" text="Manager Followup" textFill="#f8f6f6">
+            <Label layoutX="10.0" layoutY="272.0" text="Manager Followup" textFill="#f8f6f6">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="401.0" text="Office" textFill="#f8f6f6">
+            <Label layoutX="42.0" layoutY="289.0" text="Office" textFill="#f8f6f6">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="btnOpacity" graphicTextGap="15.0" layoutX="-8.0" layoutY="313.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="198.0" style="-fx-background-color: #DA0037;" text="          Opacity " textFill="#f8f8f8">
+            <Button fx:id="btnOpacity" graphicTextGap="15.0" layoutX="-8.0" layoutY="224.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="141.0" style="-fx-background-color: #DA0037;" text="Opacity " textFill="#f8f8f8">
                <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
+                  <Font name="Century Gothic Bold" size="12.0" />
                </font>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="17.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="8.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-opacity-16.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="133.0" fitWidth="133.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="95.0" fitWidth="90.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Picture1.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="14.0" fitWidth="18.0" layoutX="28.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="14.0" fitWidth="18.0" layoutX="9.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-copyright-16.png" />
                </image>
             </ImageView>
-            <Label layoutX="47.0" layoutY="430.0" text="All Rights Reserved" textFill="#f5eeee">
+            <Label layoutX="28.0" layoutY="312.0" text="All Rights Reserved" textFill="#f5eeee">
                <font>
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="190.0" prefHeight="28.0" prefWidth="432.0" style="-fx-background-color: #444444;">
+      <AnchorPane layoutX="133.0" prefHeight="20.0" prefWidth="292.0" style="-fx-background-color: #444444;">
          <children>
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="408.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <Label alignment="CENTER" layoutX="69.0" layoutY="4.0" prefHeight="20.0" prefWidth="120.0" text="settings" textFill="#eeecec">
+               <font>
+                  <Font name="Century Gothic Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="268.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-close-window-48.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="140.0" layoutY="3.0" prefHeight="20.0" prefWidth="120.0" text="settings" textFill="#eeecec">
-               <font>
-                  <Font name="Century Gothic Bold" size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnClose" layoutX="408.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="389.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnClose" layoutX="268.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="249.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-minimize-window-16.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnClose1" layoutX="389.0" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#min" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
+            <Button fx:id="btnClose1" layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#min" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
          </children>
       </AnchorPane>
    </children>
