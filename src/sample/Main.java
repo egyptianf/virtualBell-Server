@@ -71,7 +71,7 @@ public class Main extends Application {
 
 
 
-        Scene scene = new Scene(root, 220, 220);
+        Scene scene = new Scene(root, 600, 600);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("main.css")).toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 
@@ -99,8 +99,8 @@ public class Main extends Application {
         // Slider in settingsScene
         // add an event when its value changes
         settingsController.sliderSize.valueProperty().addListener((observable, oldValue, newValue) -> {
-            myController.callButton.setScaleX( (newValue.doubleValue()/100) );
-            myController.callButton.setScaleY( (newValue.doubleValue()/100) );
+            myController.callButton.setScaleX( (newValue.doubleValue()/100) + 0.5);
+            myController.callButton.setScaleY( (newValue.doubleValue()/100) + 0.5);
         });
 
         // Color picker in settingsScene
