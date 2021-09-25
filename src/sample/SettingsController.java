@@ -27,10 +27,12 @@ public class SettingsController {
 
     public Button btnSize;
     public Button btnColor;
+    public Button btnOpacity;
 
     @FXML
     public AnchorPane rootPane;
     public AnchorPane pnColor;
+    public AnchorPane pnOpacity;
 
     @FXML
     private void loadColor(ActionEvent event) throws IOException {
@@ -45,6 +47,7 @@ public class SettingsController {
 
     public void initialize(){
         pnColor.setVisible(false);
+        pnOpacity.setVisible(false);
         btnSize.setStyle("-fx-background-color:" + "#FF2626");
     }
 

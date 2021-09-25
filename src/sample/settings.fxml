@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="514.0" prefWidth="702.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
+<AnchorPane prefHeight="459.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
    <children>
-      <AnchorPane fx:id="pnColor" layoutX="250.0" layoutY="70.0" prefHeight="440.0" prefWidth="437.0">
+      <AnchorPane fx:id="pnColor" layoutX="185.0" layoutY="30.0" prefHeight="424.0" prefWidth="437.0">
          <children>
             <ColorPicker editable="true" layoutX="152.0" layoutY="200.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="rootPane" layoutX="250.0" layoutY="70.0" prefHeight="424.0" prefWidth="437.0">
+      <AnchorPane fx:id="rootPane" layoutX="185.0" layoutY="30.0" prefHeight="424.0" prefWidth="437.0">
          <children>
             <Button layoutX="180.0" layoutY="265.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="77.0" text="OK">
                <font>
@@ -26,7 +26,12 @@
             <Slider fx:id="sliderSize" layoutX="81.0" layoutY="153.0" prefHeight="67.0" prefWidth="275.0" showTickMarks="true" value="100.0" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="514.0" prefWidth="183.0" style="-fx-background-color: #DA0037;">
+      <AnchorPane fx:id="pnOpacity" layoutX="185.0" layoutY="30.0" prefHeight="424.0" prefWidth="437.0">
+         <children>
+            <Slider layoutX="71.0" layoutY="167.0" prefHeight="14.0" prefWidth="275.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="459.0" prefWidth="183.0" style="-fx-background-color: #DA0037;">
          <children>
             <Label alignment="CENTER" layoutX="11.0" layoutY="129.0" prefHeight="30.0" prefWidth="161.0" text="Space Technology " textFill="#fffdfd">
                <font>
@@ -58,31 +63,41 @@
                   <Image url="@icons8-color-dropper-50.png" />
                </image>
             </ImageView>
-            <Label layoutX="32.0" layoutY="386.0" text="Manager Followup" textFill="#f8f6f6">
+            <Label layoutX="32.0" layoutY="407.0" text="Manager Followup" textFill="#f8f6f6">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="68.0" layoutY="401.0" text="Office" textFill="#f8f6f6">
+            <Label layoutX="68.0" layoutY="422.0" text="Office" textFill="#f8f6f6">
                <font>
                   <Font name="Century Gothic" size="12.0" />
                </font>
             </Label>
+            <Button fx:id="btnOpacity" graphicTextGap="15.0" layoutX="-8.0" layoutY="326.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="188.0" style="-fx-background-color: #DA0037;" text="          Opacity " textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic Bold" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="17.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-opacity-16.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="183.0" prefHeight="30.0" prefWidth="520.0" style="-fx-background-color: #444444;">
+      <AnchorPane layoutX="183.0" prefHeight="25.0" prefWidth="444.0" style="-fx-background-color: #444444;">
          <children>
-            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="486.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="412.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icons8-close-window-48.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="231.0" layoutY="4.0" prefHeight="20.0" prefWidth="120.0" text="settings" textFill="#eeecec">
+            <Label alignment="CENTER" layoutX="157.0" layoutY="3.0" prefHeight="20.0" prefWidth="120.0" text="settings" textFill="#eeecec">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="btnClose" layoutX="486.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
+            <Button fx:id="btnClose" layoutX="412.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleCloseButtonAction" style="-fx-background-color: transparent; -fx-text-fill: transparent; -fx-border-color: transparent;" styleClass="closeButton" />
          </children>
       </AnchorPane>
    </children>
