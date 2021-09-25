@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="453.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
+<AnchorPane prefHeight="453.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsController">
    <children>
       <AnchorPane fx:id="pnColor" layoutX="185.0" layoutY="26.0" prefHeight="424.0" prefWidth="437.0" style="-fx-background-color: #EDEDED;">
          <children>
@@ -14,11 +14,6 @@
       </AnchorPane>
       <AnchorPane fx:id="rootPane" layoutX="185.0" layoutY="26.0" prefHeight="424.0" prefWidth="437.0" style="-fx-background-color: #EDEDED;">
          <children>
-            <Button layoutX="180.0" layoutY="265.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="77.0" text="OK">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Button>
             <Slider fx:id="sliderSize" layoutX="81.0" layoutY="153.0" prefHeight="67.0" prefWidth="275.0" showTickMarks="true" value="100.0" />
          </children>
       </AnchorPane>
