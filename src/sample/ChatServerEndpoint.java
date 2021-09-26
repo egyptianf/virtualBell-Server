@@ -29,7 +29,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())+1)+"\nCONNECTED");
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])+1)+"\nCONNECTED");
             }
         });
         mySession = session;
@@ -60,7 +60,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue())-1)+"\nCONNECTED");
+                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])-1)+"\nCONNECTED");
             }
         });
         try {
