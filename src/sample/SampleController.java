@@ -44,13 +44,15 @@ public class SampleController {
         //window.setOnCloseRequest(e -> closeProgram());
 
     }
+
+    //Callback function when the button is clicked
     public void call(ActionEvent event) {
         // Will send a text the connected clients
         System.out.println(locationChanged);
 
         try {
             if(!locationChanged) {
-                for (Session sess : ChatServerEndpoint.mySession.getOpenSessions()) {
+                for (Session sess : ChatServerEndpoint.openSessions) {
                     try {
                         sess.getBasicRemote().sendText("CALL");
                     } catch (IOException e) {

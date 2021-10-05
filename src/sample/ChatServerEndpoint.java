@@ -14,36 +14,37 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 
 @ServerEndpoint(value = "/app")
 public class ChatServerEndpoint {
-    public static Session mySession;
 
-
+    public static Queue<Session> openSessions = new LinkedList<>();
     public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0"+"\nCONNECTED");
 
 
     @OnOpen
     public void onOpen(Session session) {
         System.out.println ("Connected, sessionID = " + session.getId());
+        openSessions.add(session);
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])+1)+"\nCONNECTED");
             }
         });
-        mySession = session;
         System.out.println("NEW CONNECTION");
 
         //make session have no max idle timeout on a per session basis
         session.setMaxIdleTimeout(-10);
 
-        //connectedNumLabel.setText(Integer.toString(ChatServerEndpoint.connectedNum));
-        //SampleController.connectedNum.setText(Integer.toString(ChatServerEndpoint.connectedNum));
     }
 
     @OnMessage
     public void onMessage(String message, Session session) {
+        // Not doing any logic because the server only sends messages; it does not receive
         if (message.equals("quit")) {
             try {
                 session.close(new CloseReason(CloseReason.CloseCodes.NORMAL_CLOSURE, "Bye!"));
@@ -63,38 +64,9 @@ public class ChatServerEndpoint {
                 connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])-1)+"\nCONNECTED");
             }
         });
-        try {
-            for (Session sess : session.getOpenSessions()) {
-                try {
-                    if(sess != session){
-                        mySession = sess;
-                        break;
-                    }
-                    sess.getBasicRemote().sendText("CALL");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }catch (NullPointerException ne){
-            System.out.println("NO CONNECTIONS YET!");
-        }
+        openSessions.remove(session);
         //connectedNumLabel.setText(Integer.toString(ChatServerEndpoint.connectedNum));
     }
 
-    @Deprecated
-    public void call(ActionEvent actionEvent) {
-        System.out.println("CLICKED!!");
-        try {
-            for (Session sess : mySession.getOpenSessions()) {
-                try {
-                    sess.getBasicRemote().sendText("CALL");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }catch (NullPointerException ne){
-            System.out.println("NO CONNECTIONS YET!");
-        }
-    }
 
 }
