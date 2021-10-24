@@ -25,7 +25,13 @@ import javafx.stage.Stage;
 import org.glassfish.tyrus.server.Server;
 
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main extends Application {
 
@@ -150,7 +156,6 @@ public class Main extends Application {
 
 
     }
-
 
     public static void main(String[] args) {
         launch(args);

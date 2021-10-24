@@ -32,7 +32,7 @@ public class ChatServerEndpoint {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])+1)+"\nCONNECTED");
+                connectedNumProperty.set(openSessions.size() +"\nCONNECTED");
             }
         });
         System.out.println("NEW CONNECTION");
@@ -58,14 +58,13 @@ public class ChatServerEndpoint {
     public void onClose(Session session, CloseReason closeReason) {
         System.out.println("Session " + session.getId() +
                 " closed because " + closeReason);
+        openSessions.remove(session);
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                connectedNumProperty.set(String.valueOf(Integer.parseInt(connectedNumProperty.getValue().split("\\n")[0])-1)+"\nCONNECTED");
+                connectedNumProperty.set(openSessions.size() +"\nCONNECTED");
             }
         });
-        openSessions.remove(session);
-        //connectedNumLabel.setText(Integer.toString(ChatServerEndpoint.connectedNum));
     }
 
 
