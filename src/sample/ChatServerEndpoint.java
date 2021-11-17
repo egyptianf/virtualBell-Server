@@ -67,5 +67,12 @@ public class ChatServerEndpoint {
         });
     }
 
+    @OnError
+    public void onError(Session session, Throwable throwable) throws IOException {
+        throwable.printStackTrace();
+        System.out.println("Some error occurred");
+        session.close();
+    }
+
 
 }
