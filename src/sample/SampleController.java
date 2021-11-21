@@ -17,6 +17,8 @@ import org.glassfish.tyrus.server.Server;
 import javax.websocket.Session;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SampleController {
     public Label clicked;
@@ -35,6 +37,28 @@ public class SampleController {
             e.printStackTrace();
         }
 
+
+        int SECS = 3;
+        Timer heartbeat = new Timer();
+        heartbeat.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for(Session s: ChatServerEndpoint.openSessions){
+                    if(s.isOpen()){
+                        // Send a hearbeat package to check if it's really open
+                        System.out.println("Session is supposedly open");
+                        try {
+                            s.getBasicRemote().sendText("0");
+                            System.out.println("Sent without any errors!");
+                        } catch (IOException e) {
+                            System.out.println("This session is closed");
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+        }, 0, 1000 * SECS );
 
 
     }

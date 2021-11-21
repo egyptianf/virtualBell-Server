@@ -24,6 +24,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.glassfish.tyrus.server.Server;
 
+import javax.websocket.DeploymentException;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -158,7 +159,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
+
     }
 
 }
