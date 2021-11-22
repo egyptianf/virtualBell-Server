@@ -14,19 +14,25 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 @ServerEndpoint(value = "/app")
 public class ChatServerEndpoint {
 
-    public static Queue<Session> openSessions = new LinkedList<>();
+    public static BlockingQueue<Session> openSessions = new LinkedBlockingQueue<>();
     public static SimpleStringProperty connectedNumProperty = new SimpleStringProperty("0"+"\nCONNECTED");
 
 
     @OnOpen
     public void onOpen(Session session) {
         System.out.println ("Connected, sessionID = " + session.getId());
+        System.out.println (session.getId().length());
+
         openSessions.add(session);
 
         Platform.runLater(new Runnable() {
@@ -52,6 +58,10 @@ public class ChatServerEndpoint {
                 e.printStackTrace();
             }
         }
+    }
+    @OnMessage
+    public void healthCheckCallback(PongMessage pong, Session session) throws IOException {
+        System.out.println("Received PONG from client, thus this session is valid");
     }
 
     @OnClose

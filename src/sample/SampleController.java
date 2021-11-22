@@ -12,13 +12,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.glassfish.tyrus.core.RemoteEndpointWrapper;
 import org.glassfish.tyrus.server.Server;
 
-import javax.websocket.Session;
+import javax.websocket.*;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class SampleController {
     public Label clicked;
@@ -38,24 +43,34 @@ public class SampleController {
         }
 
 
-        int SECS = 3;
+        int SECS = 10;
         Timer heartbeat = new Timer();
         heartbeat.schedule(new TimerTask() {
             @Override
             public void run() {
-                for(Session s: ChatServerEndpoint.openSessions){
-                    if(s.isOpen()){
-                        // Send a hearbeat package to check if it's really open
-                        System.out.println("Session is supposedly open");
-                        try {
-                            s.getBasicRemote().sendText("0");
-                            System.out.println("Sent without any errors!");
-                        } catch (IOException e) {
-                            System.out.println("This session is closed");
-                            e.printStackTrace();
-                        }
+                for (Session s: ChatServerEndpoint.openSessions){
+                    if (s.isOpen()){
+                        RemoteEndpoint.Async asyncHandle = s.getAsyncRemote();
+                        asyncHandle.setSendTimeout(1000);
+                        asyncHandle.sendText("check-health", new SendHandler() {
+                            @Override
+                            public void onResult(SendResult sendResult) {
+                                if(!sendResult.isOK()){
+                                    System.out.println("Async send failure: " + sendResult.getException());
+                                    ChatServerEndpoint.openSessions.remove(s);
+                                    Platform.runLater(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            ChatServerEndpoint.connectedNumProperty.set(ChatServerEndpoint.openSessions.size() +"\nCONNECTED");
+                                        }
+                                    });
+                                }
+                            }
+                        });//will timeout after 2 seconds
                     }
+
                 }
+
             }
 
         }, 0, 1000 * SECS );

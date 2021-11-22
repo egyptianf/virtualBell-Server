@@ -7,11 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="tyrus-container-grizzly" level="project" />
     <orderEntry type="library" name="tyrus-client" level="project" />
     <orderEntry type="library" name="FXTrayIcon-3.0.0" level="project" />
-    <orderEntry type="library" name="virtualBell_Final" level="project" />
-    <orderEntry type="library" name="Server" level="project" />
-    <orderEntry type="library" name="tyrus-container-grizzly" level="project" />
     <orderEntry type="library" name="tyrus-server" level="project" />
   </component>
 </module>
